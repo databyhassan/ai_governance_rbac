@@ -253,3 +253,12 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+doc_events = {
+    "User": {
+        "validate": "ai_governance_rbac.events.check_role_assignment"
+    },
+    "Access Request": {
+        "validate": "ai_governance_rbac.risk_engine.calculate_access_risk"
+    }
+}
+page_js = {"ai_security_dashboard": "public/js/ai_security_dashboard.js"}

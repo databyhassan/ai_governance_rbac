@@ -1,0 +1,25 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2026-09-26 13:00:00",
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "javascript": "frappe.query_reports['AI Security Intelligence'] = {\n    'filters': [],\n    'onload': function(report) {\n        frappe.call({\n            method: 'ai_governance_rbac.dashboard_api.get_security_metrics',\n            callback: function(r) {\n                if (r.message) {\n                    var data = r.message;\n                    var html = `\n                    <div style=\"background: #0f172a; padding: 20px; border-radius: 12px; margin-bottom: 20px; color: #f8fafc; font-family: sans-serif;\">\n                      <div style=\"display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;\">\n                        <div>\n                          <h3 style=\"font-weight: 700; color: #38bdf8; margin: 0;\">🛡️ AI Security & Risk Intelligence Dashboard</h3>\n                          <p style=\"color: #94a3b8; margin-top: 4px; font-size: 0.85rem;\">Real-time ISO 42001 Assessment, DLP Interception & ML Anomaly Detection</p>\n                        </div>\n                      </div>\n\n                      <div style=\"display: flex; gap: 15px;\">\n                        <div style=\"background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; flex: 1;\">\n                          <div style=\"font-size: 0.75rem; color: #94a3b8; font-weight: 600;\">TOTAL REQUESTS</div>\n                          <div style=\"font-size: 1.6rem; font-weight: 700; color: #f8fafc; margin-top: 4px;\">${data.kpis.total_requests}</div>\n                        </div>\n                        <div style=\"background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 10px; padding: 15px; flex: 1;\">\n                          <div style=\"font-size: 0.75rem; color: #f87171; font-weight: 600;\">CRITICAL ANOMALIES</div>\n                          <div style=\"font-size: 1.6rem; font-weight: 700; color: #ef4444; margin-top: 4px;\">${data.kpis.high_risk_count}</div>\n                        </div>\n                        <div style=\"background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 10px; padding: 15px; flex: 1;\">\n                          <div style=\"font-size: 0.75rem; color: #38bdf8; font-weight: 600;\">HIGH RISK RATIO</div>\n                          <div style=\"font-size: 1.6rem; font-weight: 700; color: #38bdf8; margin-top: 4px;\">${data.kpis.high_risk_ratio}</div>\n                        </div>\n                        <div style=\"background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 10px; padding: 15px; flex: 1;\">\n                          <div style=\"font-size: 0.75rem; color: #c084fc; font-weight: 600;\">AUDIT EVENTS</div>\n                          <div style=\"font-size: 1.6rem; font-weight: 700; color: #c084fc; margin-top: 4px;\">${data.kpis.total_audit_events}</div>\n                        </div>\n                      </div>\n                    </div>\n                    `;\n                    report.page.main.find('.report-summary').remove();\n                    report.page.main.prepend(html);\n                }\n            }\n        });\n    }\n};",
+ "modified": "2026-09-26 13:00:00",
+ "modified_by": "Administrator",
+ "module": "AI Governance RBAC",
+ "name": "AI Security Intelligence",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "User",
+ "report_name": "AI Security Intelligence",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

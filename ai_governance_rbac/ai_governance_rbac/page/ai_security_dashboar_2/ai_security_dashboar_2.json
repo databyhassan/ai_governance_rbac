@@ -1,0 +1,23 @@
+{
+ "content": null,
+ "creation": "2026-09-26 15:26:28.160278",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-09-26 15:26:28.160278",
+ "modified_by": "Administrator",
+ "module": "AI Governance RBAC",
+ "name": "ai_security_dashboar-2",
+ "owner": "Administrator",
+ "page_name": "ai_security_dashboar-2",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "AI Security Dashboard"
+}

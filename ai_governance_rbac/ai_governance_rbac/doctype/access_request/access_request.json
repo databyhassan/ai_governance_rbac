@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "creation": "2026-10-13 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "target_role",
+  "duration_type",
+  "justification",
+  "risk_score",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Data",
+   "label": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_role",
+   "fieldtype": "Data",
+   "label": "Target Role",
+   "default": "System Manager"
+  },
+  {
+   "fieldname": "duration_type",
+   "fieldtype": "Select",
+   "label": "Duration Type",
+   "options": "Temporary\nPermanent",
+   "default": "Temporary"
+  },
+  {
+   "fieldname": "justification",
+   "fieldtype": "Small Text",
+   "label": "Justification"
+  },
+  {
+   "fieldname": "risk_score",
+   "fieldtype": "Float",
+   "label": "Risk Score",
+   "default": "0.0"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nApproved\nRejected",
+   "default": "Pending"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-13 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "AI Governance RBAC",
+ "name": "Access Request",
+ "naming_rule": "Expression",
+ "autoname": "AR-.#####",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "custom": 0,
+ "is_submittable": 0
+}

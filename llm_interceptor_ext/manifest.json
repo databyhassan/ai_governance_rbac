@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "AI Governance Prompt Interceptor",
+  "version": "1.3",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "*://chatgpt.com/*",
+    "*://claude.ai/*",
+    "*://test.localhost/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://chatgpt.com/*", "*://claude.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
